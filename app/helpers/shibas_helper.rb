@@ -1,0 +1,2 @@
+module ShibasHelper
+end

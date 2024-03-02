@@ -1,0 +1,54 @@
+<h1>shiba daito</h1>
+<h3>詳細</h3>
+<div class="shiba">
+  <p><%= @shiba.name %></p>
+  <p><%= @shiba.genre %></p>
+  <p><%= @shiba.about %></p>
+  <p><%= image_tag @shiba.image_url, size: "250x200" if @shiba.image? %></p>
+  <p><%= @shiba.created_at %></p>
+  <% if user_signed_in? %>
+      <% if current_user.already_liked?(@shiba) %>
+        <%= link_to shiba_like_path(@shiba), method: :delete do %>
+          <p>いいねを取り消す</p><%= @shiba.likes.count %>
+        <% end %>
+      <% else %>
+        <%= link_to shiba_likes_path(@shiba), method: :post do %>
+          <p>いいね</p><%= @shiba.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>いいねの数 = </p><%= @shiba.likes.count %>
+    <% end %>
+  <%= link_to "編集する", edit_shiba_path(@shiba.id) %>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @shiba.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+</div>
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+      <br>
+    </div>
+      
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@shiba, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "一覧に戻る", shibas_path %>
+<%= link_to "編集する", edit_shiba_path(@shiba.id) %>
