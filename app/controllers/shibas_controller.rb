@@ -1,5 +1,6 @@
 class ShibasController < ApplicationController
   before_action :authenticate_user!,only:[:new,:create,:edit]
+
     def index
       if params[:search] == nil
         @shibas= Shiba.all
@@ -13,12 +14,18 @@ class ShibasController < ApplicationController
       end
     end
     
-    def new
+      def new
         @shiba = Shiba.new
       end
     
       def create
+
+        
+
         shiba = Shiba.new(shiba_params)
+
+        shiba.user_id = current_user.id
+
         if shiba.save!
           redirect_to :action => "index"
         else

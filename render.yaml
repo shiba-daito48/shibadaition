@@ -1,12 +1,12 @@
 databases:
   - name: shibadaition_DB
-    databaseName: shibadaition_db
+    databaseName: shibadaition_db_m337
     user: shibadaition
     region: singapore
 
 services:
   - type: web
-    name: shibadaition
+    name: shibadaition_DB
     env: ruby
     region: singapore
     plan: free
