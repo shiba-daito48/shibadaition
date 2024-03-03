@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ 
+body{
+    background-color: rgba(0, 0, 0, 0.792);
+    font-family: "SimSun", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: red;
+}
+
+a{
+    color: red;
+}
+
+header{
+    background-image: url(blood.jpg);
+
+}

@@ -1,3 +1,4 @@
+<div class=shiba-daito>
 <h1>shiba daito</h1>
 <h3>一覧ページ</h3>
 <h3>投稿を検索</h3>
@@ -9,16 +10,14 @@
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <% end %>
 <%= link_to "新規投稿へ", new_shiba_path %>
+
 <div class="shibas-container">
-
   <% @shibas.each do |t| %>
-
     <div class="shiba">
-    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      <%= image_tag t.image_url, size: "250x200" if t.image? %>
       <%= t.name %>
       <%= t.genre %>
       <%= t.about %>
-      <%= t.image %>
       <% if user_signed_in? %>
       <% if current_user.already_liked?(t) %>
           <%= link_to shiba_like_path(id: t.id, shiba_id: t.id), method: :delete do %>
@@ -39,4 +38,5 @@
       <% end %>
     </div>
   <% end %>
+    </div>
 </div>
