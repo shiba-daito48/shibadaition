@@ -17,11 +17,11 @@ class ShibasController < ApplicationController
       def new
         @shiba = Shiba.new
       end
+
+      def shibadai
+      end
     
       def create
-
-        
-
         shiba = Shiba.new(shiba_params)
 
         shiba.user_id = current_user.id

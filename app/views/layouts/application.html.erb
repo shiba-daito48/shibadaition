@@ -18,8 +18,9 @@
       <h1>daito</h1>
       <div class="header-list">
       <ul>
-        <%= link_to "ホーム", shibas_path %>
-        <%= link_to "診断する", perfumes_path %>
+        <%= link_to "ホーム", shibas_shibadai_path %>
+        <%= link_to "投稿ページ", shibas_path %>
+        <%= link_to image_tag('sinndann-aikonn.png', class:"sindan"), perfumes_path  %>
         <% if user_signed_in? %>
           <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <li><%= link_to "新規投稿",new_shiba_path %></li>

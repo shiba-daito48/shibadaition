@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  
   
   
-  
+  get 'shibas/shibadai' => 'shibas#shibadai'
   resources :perfumes
 
   resources :shibas do
@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   get 'shibas/:shiba_id/likes' => 'likes#create'
   get 'shibas/:shiba_id/likes/:id' => 'likes#destroy'
   
-  root 'shibas#index'
+
+  root 'shibas#shibadai'
   
 
   
