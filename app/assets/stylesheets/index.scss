@@ -5,9 +5,56 @@
 }
 
 .dai h1{
-    font-size: 30px;
+    text-align:center;
 }
 
 .dai h3{
     font-size: 20px;
+}
+
+
+.shibas-container{
+    height: auto; 
+    align-items: center;
+    font-size: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+
+}
+.shiba{
+    
+}
+
+.satoko{
+    display: flex;
+    text-align: right;
+}
+
+input#search{
+    height: 40px;
+    width: 400px;
+    font-size: 30px;
+}
+
+input{
+    
+}
+
+.large-button{
+    height: 44px;
+    width: 100px;
+}
+
+.dai{
+    display:flex;
+    text-align: center;
+    margin:20px;
+    margin-left:30%;
+    
+}
+
+.shibada{
+    font-size: 40px;
 }

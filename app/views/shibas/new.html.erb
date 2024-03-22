@@ -1,30 +1,45 @@
-<h1>shiba daito</h1>
-<h3>新規投稿ページ</h3>
-<%= form_for @shiba do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, :size => 30 %>
-  </div>
+<div class="new">
+  <h3>新規投稿ページ</h3>
+  <div class="new1">
+    <%= form_for @shiba do |f| %>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_area :name, :size => "30x2" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :genre  %>
-    <%= f.select :genre, 
-    [["A", "A"], 
-    ["B", "B"], 
-    ["C", "C"]], include_blank: "選択して下さい" %>
-  </div>
+      <div class="field">
+        <%= f.label :genre  %>
+        <%= f.select :genre, 
+        [["オカルト", "オカルト"], 
+        ["モンスター", "モンスター"], 
+        ["サイコ", "サイコ"],
+        ["スプラッター", "スプラッター"],
+        ["その他", "その他"]], include_blank: "選択して下さい" %>
+      </div>
+      <br>
+      <div class="new3">
+        <%= f.label :about  %>
+        <%= f.text_area :about, :size => "30x10" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="new4">
+    <form>
+      <p class="formbottom">
+      <input type="submit" value='' , class="btnssubmit">
+      </p>
+      </form>
 
-  <div class="field">
-    <%= f.label :about  %>
-    <%= f.text_area :about, :size => "30x2" %>
+    </div>
+  <% end %>
+  <br>
   </div>
-
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+  <div class="itirannhe">
+  <%= link_to "一覧に戻る", shibas_path %>
   </div>
-  
-  <%= f.submit "投稿する" %>
-<% end %>
-
-<%= link_to "一覧に戻る", shibas_path %>

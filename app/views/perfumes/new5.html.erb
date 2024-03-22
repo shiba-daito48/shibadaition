@@ -1,0 +1,12 @@
+<%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
+    <div class="perfume-container">
+        <div class="col-12">
+            <p>Q3. カルト系に興味がありますか？</p>
+            <%= image_tag 'tyusya.jpg',class:"byouin" %>
+        </div>
+        <div class="col-6">
+            <%=link_to image_tag('hai',class:"hai"), perfumes_show4_path  %>
+            <%=link_to image_tag('iie',class: "iie"), perfumes_show5_path  %>
+       </div>
+    <div>
+<%end%>

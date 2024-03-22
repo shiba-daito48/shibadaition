@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/d5e8329063.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -15,18 +16,19 @@
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Slackside+One&display=swap" rel="stylesheet">
 
-      <h1>daito</h1>
+   <%= link_to image_tag('head.png',class:"sindan5" ), shibas_shibadai_path %>
       <div class="header-list">
       <ul>
-        <%= link_to "ホーム", shibas_shibadai_path %>
-        <%= link_to "投稿ページ", shibas_path %>
-        <%= link_to image_tag('sinndann-aikonn.png', class:"sindan"), perfumes_path  %>
+        <%= link_to image_tag('5.png',class:"aun" ), shibas_a_path %>
+        <%= link_to image_tag('top',class:"sindan6" ), shibas_shibadai_path %>
+        <%= link_to image_tag('toukouiti',class:"sindan" ), shibas_path %>
+        <%= link_to image_tag('sinnkitoukou',class:"sindan2"), new_shiba_path %>
+        <%= link_to image_tag('sinndann2', class:"sindan3"), perfumes_path  %>
         <% if user_signed_in? %>
-          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "新規投稿",new_shiba_path %></li>
+          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"out" %></li>
         <% else %>
-          <li><%= link_to "新規登録", new_user_registration_path %></li>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to image_tag('sinnkitouroku',class:"sindan4" ), new_user_registration_path %></li>
+          <li><%= button_to "ログイン", new_user_session_path,class:"in" %></li>
         <% end %>
       </ul>
       </div>

@@ -3,14 +3,12 @@ class ShibasController < ApplicationController
 
     def index
       if params[:search] == nil
-        @shibas= Shiba.all
+        @shibas= Shiba.all.order(created_at: :desc)
       elsif params[:search] == ''
-        @shibas= Shiba.all
+        @shibas= Shiba.all.order(created_at: :desc)
       else
         @shibas = Shiba.where("name LIKE ? ",'%' + params[:search] + '%')
-        @shibas = Shiba.where("about LIKE ? ",'%' + params[:search] + '%')
         @shibas = Shiba.where("genre LIKE ? ",'%' + params[:search] + '%')
-        @shibas = Shiba.where("image LIKE ? ",'%' + params[:search] + '%')
       end
     end
     
@@ -21,6 +19,9 @@ class ShibasController < ApplicationController
       def shibadai
       end
     
+      def a
+      end
+
       def create
         shiba = Shiba.new(shiba_params)
 

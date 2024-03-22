@@ -1,45 +1,53 @@
 <div class=shiba-daito>
-<div class="dai">
-  <h1>shiba daito</h1>
-  <h3>一覧ページ</h3>
-  <h3>投稿を検索</h3>
-</div>
- <%= form_tag({controller:"shibas",action:"index"}, method: :get) do %>
-   <%= text_field_tag :search %>
-   <%= submit_tag '検索する'  %>
-<% end %>
-<% if user_signed_in? %>
-<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<% end %>
-<%= link_to "新規投稿へ", new_shiba_path %>
+  
+    <%= form_tag({controller:"shibas",action:"index"}, method: :get) do %>
+      <div class="dai">
+      <div>
+      <%= text_field_tag :search %>
+      </div>
+      <div>
+      <%= submit_tag '検索する', class: 'large-button' %>
+      </div>
+      </div>
+    <% end %>
+  
 
-<div class="shibas-container">
-  <% @shibas.each do |t| %>
-    <div class="shiba">
-      <%= image_tag t.image_url, size: "250x200" if t.image? %>
-      <%= t.name %>
-      <%= t.genre %>
-      <%= t.about %>
-      <% if user_signed_in? %>
-      <% if current_user.already_liked?(t) %>
-          <%= link_to shiba_like_path(id: t.id, shiba_id: t.id), method: :delete do %>
-              <p>いいねを取り消す</p><%= t.likes.count %>
-          <% end %>
-      <% else %>
-          <%= link_to shiba_likes_path(id: t.id, shiba_id: t.id), method: :post do %>
-              <p>いいね</p><%= t.likes.count %>
-          <% end %>
-      <% end %>
-  <% else %>
-      <p>いいねの数 = </p><%= t.likes.count %>
-  <% end %>
-    
-      <% if user_signed_in? && current_user.id == t.user_id %>
-      <%= link_to "詳細へ", shiba_path(t.id) %>
-        <%= link_to "編集する", edit_shiba_path(t.id) %>
-        <%= button_to "削除する", shiba_path(t.id), method: :delete %> 
-      <% end %>
-    </div>
-  <% end %>
-    </div>
-</div>
+  <div class="shibas-container">
+    <% @shibas.each do |t| %>
+
+          <div class="shiba">
+              <div class="shibaimage">
+                  <%= image_tag t.image_url, size: "400x588" if t.image? %>
+              </div>
+                  <br>
+
+              <div class="shibacontent">
+               <div class="shibada">
+                    <%= t.name %>
+                    </div>
+                  <div class="shibadait">
+                    <%= t.genre %>
+                    <% if user_signed_in? %>
+                    <%= link_to "詳細へ", shiba_path(t.id) %>
+                      <% if current_user.already_liked?(t) %>
+                        <%= link_to shiba_like_path(id: t.id, shiba_id: t.id), method: :delete do %>
+                          <i class="fa-solid fa-eye" style="color: #bd0000;"></i><%= t.likes.count %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to shiba_likes_path(id: t.id, shiba_id: t.id), method: :post do %>
+                          <i class="fa-solid fa-eye" style="color: #bd0000;"></i><%= t.likes.count %>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <p>いいねの数 = </p><%= t.likes.count %>
+                    <% end %>
+                    </div>
+                
+              
+             </div>
+
+          </div>
+
+    <% end %>
+  
+  </div>

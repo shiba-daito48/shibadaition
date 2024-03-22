@@ -6,6 +6,52 @@ class PerfumesController < ApplicationController
         @perfume = Perfume.new
     end
 
+    def new1
+        @perfume = Perfume.new
+    end
+
+    def new2
+        @perfume = Perfume.new
+    end
+
+    def new3
+        @perfume = Perfume.new
+    end
+
+    def new4
+        @perfume = Perfume.new
+    end
+
+    def new5
+        @perfume = Perfume.new
+    end
+
+    def new6
+        @perfume = Perfume.new
+    end
+
+    def show1
+    end
+
+    def show2
+    end
+
+    def show3
+    end
+
+    def show4
+    end
+
+    def show5
+    end
+
+    def show6
+    end
+
+    def show7
+    end
+
+
     def show
         @perfume = Perfume.find_by(id: params[:id])
     end

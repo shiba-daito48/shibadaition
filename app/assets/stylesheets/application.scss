@@ -14,7 +14,10 @@
  *= require_self
  */
  
-
+*{
+  margin-top:0px;
+  padding:0;
+}
 
 body{
     background-color: rgba(0, 0, 0, 0.792);
@@ -29,13 +32,13 @@ a{
 }
 
 header {
-background-image: url(kiri.png);
+background-color: #545454;
 background-size: cover;
 height: 120px;
 font-weight: bold;
 display: flex;
-justify-content: space-between;
-align-items: center;
+
+
   }
   header a {
     color: red; 
@@ -48,6 +51,7 @@ align-items: center;
   .header-list {
     display: flex;
     align-items: center;
+    position: absolute;
   }
   header ul {
     display: flex;
@@ -58,5 +62,46 @@ align-items: center;
   }
 
   .sindan{
-    height: 6vw;
-  }
+    height: 8vw;
+   margin-left: 650%;
+   margin-top: 5%;
+   }
+  
+   .sindan2{
+    height: 8vw;
+    margin-left: 650% ;
+    margin-top: 5%;
+   }
+
+   .sindan3{
+    height: 8vw;
+    margin-left: 650%;
+    margin-top: 5%;
+   }
+
+   .out{
+        margin-left: 1020%;
+        margin-top: 65%;
+   }
+   .in{
+    margin-left: 1010%;
+    margin-top: 75%;
+   }
+   .sindan4{
+    height: 8vw;
+    margin-left: 150% ;
+    margin-top: 5%;
+   }
+   
+   .sindan5{
+    height: 8vw;
+   }
+   .sindan6{
+    height: 8vw;
+    margin-left: 650% ;
+    margin-top: 5%;
+   }
+   .aun{
+    height: 8vw;
+    margin-left: 500%;
+   }
